@@ -1,6 +1,8 @@
 const hasOwnProperty = Object.prototype.hasOwnProperty;
 export function update(data, key, value) {
-    return extend(data, {key: value});
+    data = extend(data);
+    data[key] = value;
+    return data;
 }
 
 export function extend(...args) {
