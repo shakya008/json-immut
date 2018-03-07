@@ -7,10 +7,12 @@ const json={
   b:2
 };
 const updated = update(json, 'a', 10);
-// output
+/*
+output
 {
  a:10
  b:2
 }
 updated == json // false
+*/
 ```
