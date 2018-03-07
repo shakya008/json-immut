@@ -4,7 +4,7 @@ const isArray = Array.isArray;
 import {isFunction, isObjectType} from './util';
 
 /**
-* this function will update value in array and object in single level depth.
+* This function will update value in array and object in single level depth.
 */
 export function update(data, key, value) {
     if (!isObjectType(data)) {
@@ -76,7 +76,7 @@ export function updateIn(data, path, cb) {
         }
         return update(data, path[0], val);
     } else {
-        const updated = updateIn(data[path[0]], path.slice(1), cb);
+        const updated = updateIn(data[path[0]] || {}, path.slice(1), cb);
         return update(data, path[0], updated);
     }
 }
