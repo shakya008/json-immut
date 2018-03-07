@@ -1,0 +1,9 @@
+https://hackernoon.com/how-to-create-library-in-angular-2-and-publish-to-npm-from-scratch-f2b1272d6266
+https://medium.com/@cyrilletuzi/how-to-build-and-publish-an-angular-module-7ad19c0b4464
+
+https://medium.com/@nikolasleblanc/building-an-angular-4-component-library-with-the-angular-cli-and-ng-packagr-53b2ade0701e
+
+
+
+
+https://codeburst.io/https-chidume-nnamdi-com-npm-module-in-typescript-12b3b22f0724

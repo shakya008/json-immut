@@ -4,13 +4,18 @@
     "module": "commonjs",
     "outDir": "dist",
     "rootDir": ".",
-    "sourceMap": true,
+    "sourceMap": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "declaration": true,
+    "noEmit": false
   },
   "exclude": [
     "node_modules"
+  ],
+  "files": [
+    "./src/index.ts"
   ],
   "compileOnSave": false,
   "buildOnSave": false
