@@ -1,16 +1,58 @@
 {
   "name": "json-immut",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Update json with immutability",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "index.js",
   "author": "Shyam Singh <singh.shakya008@gmail.com>",
   "license":"MIT",
-  "repository": {
-  	"type": "git",
-  	"url": "git+https://github.com/shakya008/json-immut.git"
+  "scripts": {
+    "build": "rimraf dist && webpack --progress",
+    "watch": "npm run build -- --watch",
+    "server": "webpack-dev-server --inline --progress --port 3000 --content-base src",
+    "start": "npm run server",
+    "test": "karma start karma.config.js --singleRun false",
+    "tsc": "rimraf dist && tsc -p tsconfig.json && webpack --progress"
   },
-  "bugs": {
-  	"url": "https://github.com/shakya008/json-immut/issues"
+  "dependencies": {
+    "core-js": "^2.4.1",
+    "ie-shim": "^0.1.0",
+    "reflect-metadata": "^0.1.9",
+    "rxjs": "5.0.1",
+    "zone.js": "^0.8.4"
+  },
+  "devDependencies": {
+    "@types/jasmine": "2.5.41",
+    "@types/node": "^7.0.12",
+    "awesome-typescript-loader": "^3.1.2",
+    "html-webpack-plugin": "^2.30.1",
+    "inline-source-map": "^0.6.2",
+    "istanbul": "^1.0.0-alpha.2",
+    "istanbul-instrumenter-loader": "^3.0.0",
+    "jasmine-core": "^2.8.0",
+    "json-loader": "^0.5.4",
+    "karma": "^1.7.1",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-coffee-preprocessor": "^1.0.1",
+    "karma-coverage": "^1.1.1",
+    "karma-html2js-preprocessor": "^1.1.0",
+    "karma-jasmine": "^1.1.0",
+    "karma-ng-html2js-preprocessor": "~1.0",
+    "karma-phantomjs-launcher": "^1.0.4",
+    "karma-remap-istanbul": "^0.6.0",
+    "karma-requirejs": "^1.1.0",
+    "karma-script-launcher": "^1.0.0",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-sourcemap-writer": "^0.1.2",
+    "karma-spec-reporter": "0.0.31",
+    "karma-webpack": "^2.0.5",
+    "raw-loader": "^0.5.1",
+    "rimraf": "^2.5.4",
+    "to-string-loader": "^1.1.4",
+    "ts-helpers": "^1.1.1",
+    "ts-loader": "3.5.0",
+    "typescript": "2.5.3",
+    "webpack": "^3.6.0",
+    "webpack-dev-server": "2.4.2",
+    "webpack-merge": "^4.1.0"
   }
 }
