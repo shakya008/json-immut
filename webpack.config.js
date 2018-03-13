@@ -41,9 +41,8 @@ var defaultConfig = {
   devtool: 'source-map',
 
   output: {
-    filename: '[name].bundle.js',
-    sourceMapFilename: '[name].map',
-    chunkFilename: '[id].chunk.js',
+    filename: 'json-immut.js',
+    sourceMapFilename: 'json-immut.map',
     libraryTarget: 'umd',
     umdNamedDefine: true
   },
