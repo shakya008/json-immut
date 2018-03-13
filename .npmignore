@@ -1,0 +1,11 @@
+/node_modules
+/dist
+karma.config.js
+.gitignore
+package.json-temp
+publish.txt
+tsconfig.json
+webpack.config.js
+index.html
+*.ts
+!*.d.ts

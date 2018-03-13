@@ -6,18 +6,18 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 // Webpack Config
 var webpackConfig = {
   entry: {
-    'main': './src/index.ts',
+    'main': './index.ts',
   },
 
   output: {
     publicPath: '',
-    path: path.resolve(__dirname, './dist'),
+    path: path.resolve(__dirname, './'),
   },
 
   plugins: [
-    new HtmlWebpackPlugin({
-      template: 'src/index.html'
-    }),
+    /*new HtmlWebpackPlugin({
+      template: './index.html'
+    })*/
 
   ],
 

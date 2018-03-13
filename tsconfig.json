@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
-    "outDir": "dist",
+    "outDir": "./",
     "rootDir": ".",
     "sourceMap": false,
     "emitDecoratorMetadata": true,
@@ -15,7 +15,7 @@
     "node_modules"
   ],
   "files": [
-    "./src/index.ts"
+    "./index.ts"
   ],
   "compileOnSave": false,
   "buildOnSave": false
