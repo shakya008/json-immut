@@ -76,7 +76,44 @@ export function updateIn(data, path, cb) {
         }
         return update(data, path[0], val);
     } else {
-        const updated = updateIn(data[path[0]] || {}, path.slice(1), cb);
+        const updated = updateIn(data[path[0]] || {}, slice.call(path, 1), cb);
         return update(data, path[0], updated);
     }
 }
+
+export function deleteObjKey(obj, key) {
+    if (!isObjectType(obj)) {
+        return obj;
+    }
+    let cloned = {};
+    for (let prop in obj) {
+        if (hasOwnProperty.call(obj, prop) && prop !== key) {
+            cloned[prop] = obj[prop];
+        }
+    }
+    return cloned;
+}
+
+export function deleteArrayIndex(array, index) {
+    return (array || []).filter((item, i) => i !== index);
+}
+
+export function deleteKeyIn(obj, path) {
+    path = path || [];
+    if (!isObjectType(obj)) {
+        return obj;
+    }
+    if (path.length === 1) {
+        if (isArray(obj)) {
+            return deleteArrayIndex(obj, path[0])
+        } else {
+            return deleteObjKey(obj, path[0]);
+        }
+    } else {
+        const updated = deleteArrayIndex(obj[path[0]], slice.call(path, 1));
+        return update(obj, path[0], updated);
+    }
+}
+/**
+* Insert into array method
+*/

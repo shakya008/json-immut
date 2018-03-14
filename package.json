@@ -1,6 +1,6 @@
 {
   "name": "json-immut",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "description": "Update json with immutability",
   "main": "index.js",
   "author": "Shyam Singh <singh.shakya008@gmail.com>",
