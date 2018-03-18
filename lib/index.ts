@@ -87,6 +87,9 @@ export function updateIn(data: Object|Array<any>, path: Array<number|string>, cb
     }
 }
 
+/**
+* This function excludes provided key and returns new object
+*/
 export function deleteObjKey(obj: Object, key: string): Object {
     if (!isObjectType(obj)) {
         return obj;
@@ -100,8 +103,18 @@ export function deleteObjKey(obj: Object, key: string): Object {
     return cloned;
 }
 
+/**
+* Excludes the item from the provided index in returned new array
+*/
 export function deleteArrayIndex(array: Array<any>, index: number): Array<any> {
     return (array || []).filter((item, i) => i !== index);
+}
+
+/**
+* This function excludes the items from the array in range and returns new arrays.
+*/
+export function deleteInRange(data: Array<any>, from: number, to: number): Array<any> {
+    return data.filter((item, i)=> i < from && i > to);
 }
 
 /**
@@ -143,10 +156,15 @@ export function deleteKeyIn(obj: Object|Array<any>, path: Array<string|number>):
 
 /**
 * This function adds element at last of array.
+* @param {Array<number>} data - Array in which value inserted.
+* @param {any} value - data to be pushed into array.
 */
 export function arrayPush(data: Array<any>, value: any): Array<any> {
-    return slice.call(data || [], 0).push(value);
+    let cloned = slice.call(data || []);
+    cloned.push(value);
+    return cloned;
 }
+
 /**
 * This function insert an element into an array
 */
@@ -161,6 +179,22 @@ export function arrayInsert(data: Array<any>, index: number, value: any): Array<
     }
     return arr;
 }
+
 /**
-* Array batch insert, splice
+* This function inserts an array into a given array from the provided index
+* @param {Array<any>} collection - Array in which other array to be inserted.
+* @param {number} index - index in array from which second array should be inserted.
+* @param {Array<any>} data - Array which should be inserted.
 */
+export function arrayBatchInsert(collection: Array<any>, index: number, data: Array<any>): Array<any> {
+    const len = (collection || []).length
+    const newLength = (index > len ? index : len) + (data || []).length;
+    const arr = new Array(newLength);
+    let it: number = 0;
+    let dataIt = 0;
+
+    for (let i = 0; i< newLength; i++) {
+        arr[i] = (i >= index && i < index + data.length) ? data[dataIt++] : collection[it++];
+    }
+    return arr;
+}
