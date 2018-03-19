@@ -27,7 +27,7 @@ immut.update();
 ```
 ## Methods
 #### update(obj, key, value)
-Returns a new JSON object/array by updating key/index with value without affecting source. Adds new key/index if already not exists.
+   Returns a new JSON object/array by updating key/index with value without affecting source. Adds new key/index if already not exists.
 ```javascript
 const json={
   a: 1,
@@ -44,7 +44,7 @@ arrUpdated[1] // 100
 arr[1] // 2
 ```
 #### updateIn(obj, path, cb)
-This function also returns new JSON by updating in the path provided.
+   This function also returns new JSON by updating in the path provided.
 
 `obj`: Object to be updated.
 
@@ -99,3 +99,47 @@ const nestedObj = {
  const updated = updateIn(nestObj, ['contact', 'phone'], 9765432847);
  updated.contact // {"phone": 9765432847}
 ```
+#### deleteObjKey(obj, key);
+Returns new object by excluding the provided key.
+```js
+const obj = {
+	name: 'John',
+	age: 26
+}
+const updated = deleteObjKey(obj, 'age');
+obj === updated // false
+updated.hasOwnProperty('age') // false
+```
+#### deleteArrayIndex(data: Array<any>, index: number);
+ Returns new array of length less than of `data`. returned new array does not have item at `index`.
+	
+#### deleteinRange(data: Array<any>, start: number, end: number);
+ Returns new array which does not include items from `start` index to `end` index in provided `data` array.
+	
+#### deleteKeyIn(data: Object|Array<any>, path: Array<string|number>);
+This function returns a new object/Array by excluding the key/index found in provided path. This works on mixed data structure.
+##### Example: if we want to delete the `pin` from the `nestedObj`, then it will be like:
+```js
+const updated = deleteKeyIn(nestedObj, ['profile', 'adress', 'pin']);
+updated === nestedObj // false
+```
+##### Example: if we want to delete the second index of `arr2` from the `nestedObj`, then it will be like:
+```js
+const updated = deleteKeyIn(nestedObj, ['profile', 'arr2', 2]);
+updated === nestedObj // false
+```
+
+#### arrayPush(data: Array<any>, item: any);
+This method pushed `item` in `data` array and returns new array. It is simmilar to Array.push but returns new array without altering the original.
+
+#### arrayInsert(data: Array<any>, index: number, item: any);
+This method inserts `item` at `index` into `data` array and returns new array without altering original.
+	
+#### arrayBatchInsert(collection: Array<any>, index: number, data: Array<any>);
+This method inserts `data` array into `collection` from `index` and returns new array.
+
+#### clone(data: Object|Array<any>)
+This method makes a shallow copy of provided Object/Array and returns it.
+
+#### extend(obj1, obj2, ...)
+This method accepts multiple objects and merges them into a new object from left to right and returns new object.
