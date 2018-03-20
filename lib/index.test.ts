@@ -16,8 +16,8 @@ describe("json-immut function update()", () => {
 	});
 	it("Updates the existing property with new value", () => {
 		const updated: any = update(obj, 'age', 43);
-		expect(updated).not.toEqual(obj);
-		expect(updated.age).toEqual(43);
+		expect(updated).not.toBe(obj);
+		expect(updated.age).toBe(43);
 	});
 	it("Adds the non existing property with new value", () => {
 		const updated: any = update(obj, 'address', 'b1c/4c');
@@ -170,6 +170,7 @@ describe("json-immut function clone()", () => {
 		});
 		it("should clone or make a shallow copy of objects", () => {
 			const cloned = clone(obj);
+			expect(cloned).not.toBe(obj);
 			expect(cloned).toEqual(obj);
 		});
 		it("should create a shallow copy", () => {
@@ -204,6 +205,7 @@ describe("json-immut function deleteObjKey()", () => {
 		});
 		it("should return same object if key is not present", () => {
 			const deleted = deleteObjKey(obj, 'address');
+			expect(deleted).not.toBe(obj);
 			expect(deleted).toEqual(obj);
 		});
 });
