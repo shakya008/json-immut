@@ -11,13 +11,13 @@ var webpackConfig = {
 
   output: {
     publicPath: '',
-    path: path.resolve(__dirname, './'),
+    path: path.resolve(__dirname, './dist'),
   },
 
   plugins: [
-    /*new HtmlWebpackPlugin({
+    new HtmlWebpackPlugin({
       template: './index.html'
-    })*/
+    })
 
   ],
 

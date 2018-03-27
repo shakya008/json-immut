@@ -31,7 +31,7 @@ module.exports = (config) => {
 
     // list of files / patterns to load in the browser
     files: [
-      './test.entry.ts',
+      './lib/test.entry.ts',
       {
         pattern: '**/*.map',
         served: true,
@@ -47,7 +47,7 @@ module.exports = (config) => {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-       './test.entry.ts': ['webpack']
+       './lib/test.entry.ts': ['webpack']
     },
 
     webpack: {
@@ -107,7 +107,8 @@ module.exports = (config) => {
           filename: './index.html',
           template: './index.html',
           inject: 'body',
-          minify: false
+          minify: false,
+          excludeChunks: ['login']
         }),
 
         new webpack.NoEmitOnErrorsPlugin(),

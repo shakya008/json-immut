@@ -24,7 +24,7 @@ import {isFunction, isObjectType} from './util';
 * @param {any} value - Value that needs to be updated.
 * @return {Object| Array<any>} - Returns the data which was supplied in argument after updating the property.
 */
-export function update(data: Object|Array<any>, key: string|number, value: any): Object|Array<any> {
+export function update(data: Object|Array<any>, key: string|number, value: any): any {
     if (!isObjectType(data)) {
         return data;
     }
@@ -72,7 +72,7 @@ export function extend(...args): Object {
 *                                   array, objects, mixed of array and objects, array of arrays.
 * @return {Object| Array<any>} - Returns the shallow copy of objects or arrays.
 */
-export function clone(data: Object|Array<any>): Object|Array<any> {
+export function clone(data: Object|Array<any>): any {
     if (!isObjectType(data)) {
         return data;
     }
@@ -101,7 +101,7 @@ export function clone(data: Object|Array<any>): Object|Array<any> {
     }
     updateIn(obj, ['b','c','x'], 100)
 */
-export function updateIn(data: Object|Array<any>, path: Array<number|string>, cb: any): Object|Array<any> {
+export function updateIn(data: Object|Array<any>, path: Array<number|string>, cb: any): any {
     if (!isObjectType(data)) {
         return data;
     }
@@ -133,7 +133,7 @@ export function updateIn(data: Object|Array<any>, path: Array<number|string>, cb
 * @param {string} path - Path to reach the proprty to be deleted.
 * @return {Object} - Returns the data which was supplied in argument after removing the property.
 */
-export function deleteObjKey(obj: Object, key: string): Object {
+export function deleteObjKey(obj: Object, key: string): any {
     if (!isObjectType(obj)) {
         return obj;
     }
@@ -192,7 +192,7 @@ export function deleteInRange(data: Array<any>, from: number, to: number): Array
   Delete 2nd index in arr.
   deleteKeyIn(nestedData, ['arr', 2]);
 */
-export function deleteKeyIn(obj: Object|Array<any>, path: Array<string|number>): Object|Array<any> {
+export function deleteKeyIn(obj: Object|Array<any>, path: Array<string|number>): any {
     path = path || [];
     if (!isObjectType(obj)) {
         return obj;
