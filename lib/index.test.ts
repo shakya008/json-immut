@@ -175,7 +175,7 @@ describe("json-immut function clone()", () => {
 		});
 		it("should create a shallow copy", () => {
 			let cloned: any= clone(obj);
-			expect(cloned).toBe(obj);
+			expect(cloned).toEqual(obj);
 			obj = update(obj, 'age', 43);
 			cloned = clone(obj);
 			expect(cloned.age).toBe(43);
